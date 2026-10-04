@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rakshitha Gupthe — B.Tech CSE (AI & ML) student, frontend developer and UI/UX designer." />
+  <title>Rakshitha Gupthe — Digital Observatory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="./assets/index-B8ssskwd.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BsV9CwG1.css">
+</head>
+<body>
+
+  <!-- Custom cursor (desktop only) -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Background canvas for particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="#00d4ff" stroke-width="1.2" opacity="0.6"/>
+          <circle cx="12" cy="12" r="4" stroke="#00d4ff" stroke-width="1.5"/>
+          <line x1="12" y1="2" x2="12" y2="6" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+          <line x1="12" y1="18" x2="12" y2="22" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+          <line x1="2" y1="12" x2="6" y2="12" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+          <line x1="18" y1="12" x2="22" y2="12" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <span>R.G.</span>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-close-btn"><button id="nav-close" aria-label="Close menu">✕</button></li>
+        <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills & Projects</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section id="hero">
+      <!-- Orbital decorative SVG -->
+      <div class="hero-orbitals" aria-hidden="true">
+        <svg class="orbital-svg" viewBox="0 0 800 800" fill="none">
+          <ellipse cx="400" cy="400" rx="320" ry="140" stroke="#00d4ff" stroke-width="0.8" opacity="0.07" class="orbit-1"/>
+          <ellipse cx="400" cy="400" rx="200" ry="320" stroke="#7c3aed" stroke-width="0.6" opacity="0.05" class="orbit-2"/>
+        </svg>
+      </div>
+
+      <!-- Grid overlay -->
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <!-- Cursor-following ambient light -->
+      <div id="hero-light" aria-hidden="true"></div>
+
+      <!-- Hero content -->
+      <div class="hero-content">
+        <p class="hero-label reveal-item">DIGITAL OBSERVATORY</p>
+        <h1 class="hero-name">
+          <span class="hero-name-line reveal-item">RAKSHITHA</span>
+          <span class="hero-name-line reveal-item delay-1">GUPTHE</span>
+        </h1>
+        <p class="hero-tagline reveal-item delay-2">Designing experiences. Building the web.</p>
+        <p class="hero-subtitle reveal-item delay-3">B.Tech CSE (AI &amp; ML) Student</p>
+        <div class="hero-pills reveal-item delay-4">
+          <span class="pill">Frontend</span>
+          <span class="pill-dot">·</span>
+          <span class="pill">UI/UX</span>
+          <span class="pill-dot">·</span>
+          <span class="pill">Full-Stack Development</span>
+        </div>
+        <a href="#about" class="hero-cta reveal-item delay-5" data-magnetic>
+          Explore
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Corner technical labels -->
+      <div class="hero-corner hero-corner-tl" aria-hidden="true">
+        <span class="tech-label">// LAT 17.3850° N</span>
+      </div>
+      <div class="hero-corner hero-corner-tr" aria-hidden="true">
+        <span class="tech-label">SIGNAL ACTIVE ●</span>
+      </div>
+      <div class="hero-corner hero-corner-bl" aria-hidden="true">
+        <span class="tech-label">OBS-001 · 2025</span>
+      </div>
+      <div class="hero-corner hero-corner-br" aria-hidden="true">
+        <span class="tech-label">// LON 78.4867° E</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="about-grid">
+
+          <!-- Profile Observation Lens -->
+          <div class="about-photo-wrap reveal-item">
+            <div class="obs-lens" id="obs-lens">
+
+              <!-- Ring 1: slow outer pulse -->
+              <div class="obs-ring r-pulse-outer"></div>
+              <!-- Ring 2: solid outer ring with tick marks -->
+              <div class="obs-ring r-solid-outer">
+                <svg class="r-ticks" viewBox="0 0 300 300" fill="none">
+                  <circle cx="150" cy="150" r="148" stroke="rgba(0,212,255,0.25)" stroke-width="1"/>
+                  <!-- tick marks every 30deg -->
+                  <line x1="150" y1="2"   x2="150" y2="14"  stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+                  <line x1="150" y1="286" x2="150" y2="298" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+                  <line x1="2"   y1="150" x2="14"  y2="150" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+                  <line x1="286" y1="150" x2="298" y2="150" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+                  <line x1="42"  y1="42"  x2="51"  y2="51"  stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+                  <line x1="258" y1="42"  x2="249" y2="51"  stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+                  <line x1="42"  y1="258" x2="51"  y2="249" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+                  <line x1="258" y1="258" x2="249" y2="249" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+                </svg>
+              </div>
+              <!-- Ring 3: fast spin dashed -->
+              <div class="obs-ring r-spin-fast"></div>
+              <!-- Ring 4: slow spin reverse dashed -->
+              <div class="obs-ring r-spin-slow"></div>
+              <!-- Ring 5: inner glow ring -->
+              <div class="obs-ring r-inner-glow"></div>
+
+              <!-- Hover overlay (replaces scan line) -->
+              <div class="obs-hover-overlay" aria-hidden="true">
+                <div class="obs-overlay-text tech-label">RAKSHITHA GUPTHE</div>
+              </div>
+
+              <!-- Corner brackets -->
+              <div class="obs-bracket obs-bracket-tl" aria-hidden="true"></div>
+              <div class="obs-bracket obs-bracket-tr" aria-hidden="true"></div>
+              <div class="obs-bracket obs-bracket-bl" aria-hidden="true"></div>
+              <div class="obs-bracket obs-bracket-br" aria-hidden="true"></div>
+
+              <!-- The actual photo -->
+              <div class="obs-img-wrap">
+                <img
+                  src="./profile.jpg"
+                  alt="Rakshitha Gupthe"
+                  class="obs-img"
+                  id="obs-photo"
+                  onerror="this.style.display='none'; document.getElementById('obs-fallback').style.display='flex'"
+                />
+                <div class="obs-img-fallback" id="obs-fallback">R</div>
+              </div>
+
+              <!-- Floating data readouts -->
+              <div class="obs-data obs-data-top tech-label" aria-hidden="true">ID · RG-2025</div>
+              <div class="obs-data obs-data-bottom tech-label" aria-hidden="true">STATUS · ONLINE</div>
+            </div>
+
+            <!-- Status bar below lens -->
+            <div class="obs-status-bar" aria-hidden="true">
+              <span class="tech-label obs-status-dot">●</span>
+              <span class="tech-label">OBS-001 · ACTIVE</span>
+              <span class="tech-label obs-status-ping">PING 12ms</span>
+            </div>
+          </div>
+
+          <!-- About text -->
+          <div class="about-text">
+            <p class="section-label reveal-item">PROFILE.INIT</p>
+            <h2 class="section-heading reveal-item">About Me</h2>
+            <p class="about-intro reveal-item">
+              I'm a B.Tech CSE (AI &amp; ML) student interested in building web applications
+              and designing clean digital experiences. I enjoy working on frontend interfaces,
+              UI/UX and visual design, while gradually growing into a full-stack developer.
+            </p>
+            <div class="identity-grid">
+              <div class="identity-item reveal-item">
+                <span class="identity-key tech-label">NAME</span>
+                <span class="identity-val">Rakshitha Gupthe</span>
+              </div>
+              <div class="identity-item reveal-item">
+                <span class="identity-key tech-label">DEGREE</span>
+                <span class="identity-val">B.Tech, CSE (AI &amp; ML)</span>
+              </div>
+              <div class="identity-item reveal-item">
+                <span class="identity-key tech-label">INSTITUTE</span>
+                <span class="identity-val">Marri Laxman Reddy Institute of Technology</span>
+              </div>
+              <div class="identity-item reveal-item">
+                <span class="identity-key tech-label">FOCUS</span>
+                <span class="identity-val">Frontend · UI/UX · Full-Stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
+    <section id="skills">
+      <div class="section-inner">
+        <p class="section-label reveal-item">CAPABILITY.MAP</p>
+        <h2 class="section-heading reveal-item">Skills &amp; Tools</h2>
+
+        <div class="skills-grid">
+          <!-- Development -->
+          <div class="skills-column reveal-item">
+            <h3 class="skills-col-title">
+              <span class="skills-col-dot dev-dot"></span>
+              Development
+            </h3>
+            <div class="skills-list">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">Supabase</span>
+              <span class="skill-tag">Firebase</span>
+            </div>
+          </div>
+
+          <!-- Design -->
+          <div class="skills-column reveal-item">
+            <h3 class="skills-col-title">
+              <span class="skills-col-dot design-dot"></span>
+              Design
+            </h3>
+            <div class="skills-list">
+              <span class="skill-tag design">Figma</span>
+              <span class="skill-tag design">Adobe Express</span>
+              <span class="skill-tag design">Canva</span>
+              <span class="skill-tag design">UI/UX Design</span>
+              <span class="skill-tag design">Graphic Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PROJECTS ═══════════════════════════ -->
+    <section id="projects">
+      <div class="section-inner">
+        <p class="section-label reveal-item">PROJECTS.LOG</p>
+        <h2 class="section-heading reveal-item">Projects</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal-item" data-index="01">
+            <div class="project-card-inner">
+              <div class="project-index tech-label">01</div>
+              <h3 class="project-title">Eco Campus Bot</h3>
+              <p class="project-desc">An AI-powered campus sustainability assistant that helps students make better choices around waste, recycling and campus collection points.</p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">AI</span>
+                <span class="project-tag">Chatbot</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/rakshithag1311/eco-campus-bot" target="_blank" rel="noopener noreferrer" class="project-btn" data-magnetic>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+            <div class="project-glow"></div>
+          </article>
+
+          <article class="project-card reveal-item" data-index="02">
+            <div class="project-card-inner">
+              <div class="project-index tech-label">02</div>
+              <h3 class="project-title">MoneyMade</h3>
+              <p class="project-desc">A personal finance web application for tracking income and expenses.</p>
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Web App</span>
+                <span class="project-tag">Finance</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/rakshithag1311/MoneyMade" target="_blank" rel="noopener noreferrer" class="project-btn" data-magnetic>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+            <div class="project-glow"></div>
+          </article>
+
+          <article class="project-card reveal-item" data-index="03">
+            <div class="project-card-inner">
+              <div class="project-index tech-label">03</div>
+              <h3 class="project-title">Finance UI / Figma Design</h3>
+              <p class="project-desc">A finance-tracking interface designed in Figma, along with visual design work.</p>
+              <div class="project-tags">
+                <span class="project-tag">Figma</span>
+                <span class="project-tag">UI Design</span>
+                <span class="project-tag">Prototype</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/rakshithag1311/figma-1" target="_blank" rel="noopener noreferrer" class="project-btn" data-magnetic>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+            <div class="project-glow"></div>
+          </article>
+
+          <article class="project-card reveal-item" data-index="04">
+            <div class="project-card-inner">
+              <div class="project-index tech-label">04</div>
+              <h3 class="project-title">OpsMemory</h3>
+              <p class="project-desc">An incident-memory project designed around helping DevOps teams recall past incidents and useful fixes.</p>
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">DevOps</span>
+                <span class="project-tag">Web App</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/rakshithag1311/OpsMemory" target="_blank" rel="noopener noreferrer" class="project-btn" data-magnetic>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+            <div class="project-glow"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+    <section id="contact">
+      <div class="section-inner">
+        <p class="section-label reveal-item">CONNECTION.INIT</p>
+        <h2 class="section-heading reveal-item">Establish Connection</h2>
+
+        <div class="contact-grid">
+
+          <!-- Left: terminal availability block -->
+          <div class="contact-left reveal-item">
+            <div class="terminal-block">
+              <div class="terminal-header">
+                <span class="terminal-dot td-red"></span>
+                <span class="terminal-dot td-yellow"></span>
+                <span class="terminal-dot td-green"></span>
+                <span class="terminal-title tech-label">rakshitha@obs:~</span>
+              </div>
+              <div class="terminal-body">
+                <p class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">whoami</span></p>
+                <p class="terminal-line t-out">Rakshitha Gupthe</p>
+                <p class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">status --availability</span></p>
+                <p class="terminal-line t-out t-green">● Open to collaborations</p>
+                <p class="terminal-line t-out t-green">● Available for projects</p>
+                <p class="terminal-line t-out t-green">● Ready to connect</p>
+                <p class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">cat interests.txt</span></p>
+                <p class="terminal-line t-out">Frontend Development</p>
+                <p class="terminal-line t-out">UI/UX Design</p>
+                <p class="terminal-line t-out">Visual Design</p>
+                <p class="terminal-line t-out">Full-Stack Projects</p>
+                <p class="terminal-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></p>
+              </div>
+            </div>
+            <p class="contact-tagline">I'm always open to collaborating on interesting projects, discussing ideas or just connecting.</p>
+          </div>
+
+          <!-- Right: contact cards -->
+          <div class="contact-links">
+
+            <a href="mailto:rakshithag1311@gmail.com" class="contact-card reveal-item" data-magnetic>
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label tech-label">EMAIL</span>
+                <span class="contact-value">rakshithag1311@gmail.com</span>
+              </div>
+              <div class="contact-arrow">→</div>
+            </a>
+
+            <a href="tel:+918125739385" class="contact-card reveal-item" data-magnetic>
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.28 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label tech-label">PHONE</span>
+                <span class="contact-value">+91 8125739385</span>
+              </div>
+              <div class="contact-arrow">→</div>
+            </a>
+
+            <a href="https://github.com/rakshithag1311" target="_blank" rel="noopener noreferrer" class="contact-card reveal-item" data-magnetic>
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label tech-label">GITHUB</span>
+                <span class="contact-value">github.com/rakshithag1311</span>
+              </div>
+              <div class="contact-arrow">→</div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rakshitha-gupthe-a5a4413ab" target="_blank" rel="noopener noreferrer" class="contact-card reveal-item" data-magnetic>
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label tech-label">LINKEDIN</span>
+                <span class="contact-value">linkedin.com/in/rakshitha-gupthe</span>
+              </div>
+              <div class="contact-arrow">→</div>
+            </a>
+
+            <a href="https://www.instagram.com/rakshithagupthe" target="_blank" rel="noopener noreferrer" class="contact-card reveal-item" data-magnetic>
+              <div class="contact-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label tech-label">INSTAGRAM</span>
+                <span class="contact-value">@rakshithagupthe</span>
+              </div>
+              <div class="contact-arrow">→</div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p class="tech-label">© 2025 Rakshitha Gupthe · Digital Observatory</p>
+  </footer>
+
+</body>
+</html>
